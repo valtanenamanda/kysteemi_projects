@@ -185,6 +185,7 @@ int suoritaProsessi(char *arg[], char *filename, int redirect, char *path[]) {
     char error_message[30] = "An error has occurred\n";
     // Jos on aiemmin tunnistettu riviltä >-merkki, niin kirjoitetaan tiedostoon komennon printti:
     if (redirect) {
+	// Tähän kohtaan löysin netistä apua: https://stackoverflow.com/questions/70369289/why-cant-i-open-my-file-using-open-method
         int fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0644);
         if (fd < 0) {
             write(STDERR_FILENO, error_message, strlen(error_message));
